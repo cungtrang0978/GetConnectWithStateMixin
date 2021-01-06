@@ -1,22 +1,21 @@
-
-class User {
+class UserModel {
   List<Results> results;
   Info info;
 
-  User({this.results, this.info});
+  UserModel({this.results, this.info});
 
-  User.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
-      results = List<Results>();
+      results = new List<Results>();
       json['results'].forEach((v) {
-        results.add(Results.fromJson(v));
+        results.add(new Results.fromJson(v));
       });
     }
-    info = json['info'] != null ? Info.fromJson(json['info']) : null;
+    info = json['info'] != null ? new Info.fromJson(json['info']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.results != null) {
       data['results'] = this.results.map((v) => v.toJson()).toList();
     }
@@ -57,24 +56,26 @@ class Results {
 
   Results.fromJson(Map<String, dynamic> json) {
     gender = json['gender'];
-    name = json['name'] != null ? Name.fromJson(json['name']) : null;
-    location =
-        json['location'] != null ? Location.fromJson(json['location']) : null;
+    name = json['name'] != null ? new Name.fromJson(json['name']) : null;
+    location = json['location'] != null
+        ? new Location.fromJson(json['location'])
+        : null;
     email = json['email'];
-    login = json['login'] != null ? Login.fromJson(json['login']) : null;
-    dob = json['dob'] != null ? Dob.fromJson(json['dob']) : null;
-    registered =
-        json['registered'] != null ? Dob.fromJson(json['registered']) : null;
+    login = json['login'] != null ? new Login.fromJson(json['login']) : null;
+    dob = json['dob'] != null ? new Dob.fromJson(json['dob']) : null;
+    registered = json['registered'] != null
+        ? new Dob.fromJson(json['registered'])
+        : null;
     phone = json['phone'];
     cell = json['cell'];
-    id = json['id'] != null ? Id.fromJson(json['id']) : null;
+    id = json['id'] != null ? new Id.fromJson(json['id']) : null;
     picture =
-        json['picture'] != null ? Picture.fromJson(json['picture']) : null;
+        json['picture'] != null ? new Picture.fromJson(json['picture']) : null;
     nat = json['nat'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['gender'] = this.gender;
     if (this.name != null) {
       data['name'] = this.name.toJson();
@@ -119,7 +120,7 @@ class Name {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['title'] = this.title;
     data['first'] = this.first;
     data['last'] = this.last;
@@ -132,7 +133,7 @@ class Location {
   String city;
   String state;
   String country;
-  int postcode;
+  dynamic postcode;
   Coordinates coordinates;
   Timezone timezone;
 
@@ -146,20 +147,22 @@ class Location {
       this.timezone});
 
   Location.fromJson(Map<String, dynamic> json) {
-    street = json['street'] != null ? Street.fromJson(json['street']) : null;
+    street =
+        json['street'] != null ? new Street.fromJson(json['street']) : null;
     city = json['city'];
     state = json['state'];
     country = json['country'];
     postcode = json['postcode'];
     coordinates = json['coordinates'] != null
-        ? Coordinates.fromJson(json['coordinates'])
+        ? new Coordinates.fromJson(json['coordinates'])
         : null;
-    timezone =
-        json['timezone'] != null ? Timezone.fromJson(json['timezone']) : null;
+    timezone = json['timezone'] != null
+        ? new Timezone.fromJson(json['timezone'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.street != null) {
       data['street'] = this.street.toJson();
     }
@@ -189,7 +192,7 @@ class Street {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['number'] = this.number;
     data['name'] = this.name;
     return data;
@@ -208,7 +211,7 @@ class Coordinates {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['latitude'] = this.latitude;
     data['longitude'] = this.longitude;
     return data;
@@ -227,7 +230,7 @@ class Timezone {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['offset'] = this.offset;
     data['description'] = this.description;
     return data;
@@ -263,7 +266,7 @@ class Login {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['uuid'] = this.uuid;
     data['username'] = this.username;
     data['password'] = this.password;
@@ -287,7 +290,7 @@ class Dob {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['date'] = this.date;
     data['age'] = this.age;
     return data;
@@ -306,7 +309,7 @@ class Id {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     data['value'] = this.value;
     return data;
@@ -327,7 +330,7 @@ class Picture {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['large'] = this.large;
     data['medium'] = this.medium;
     data['thumbnail'] = this.thumbnail;
@@ -351,7 +354,7 @@ class Info {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
     data['seed'] = this.seed;
     data['results'] = this.results;
     data['page'] = this.page;
