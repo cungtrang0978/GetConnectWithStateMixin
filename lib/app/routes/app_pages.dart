@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 import 'package:get_connect_with_state_mixin/app/bindings/home_binding.dart';
 import 'package:get_connect_with_state_mixin/app/views/home_view.dart';
 
-
-
 part 'app_routes.dart';
 
 class AppPages {
@@ -11,7 +9,7 @@ class AppPages {
 
   static final routes = [
     GetPage(
-      name: _Paths.HOME,
+      name: Routes.HOME,
       page: () => HomeView(),
       binding: HomeBinding(),
     ),
